@@ -1,5 +1,5 @@
 // import React from 'react'
-import mainLogo from "../assets/logo.png"
+import mainLogo from "/logo.png"
 import { MdArrowRightAlt } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
@@ -12,7 +12,7 @@ const {token ,navigate} = useAppContext()
 
   return (
     <div className='flex justify-between py-5 mx-6 sm:mx-10 xl:mx-15'>
-      <img src={mainLogo} alt="" className="w-32 sm:w-36"/>
+      <img src={mainLogo} alt="" className="w-32 sm:w-36" onClick={()=>navigate("/")}/>
    <div className="flex items-center">
        <button 
        onClick={()=> navigate("/admin")}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { IoExitOutline, IoMenu, IoClose } from "react-icons/io5";
 import { AnimatePresence } from "framer-motion";
 import Sidebar from "./Sidebar";
-import mainLogo from "../../../public/logo.png";
+import mainLogo from "/logo.png";
 import { useAppContext } from "../../context/AppContext";
 
 const Layout = () => {
@@ -41,7 +41,7 @@ const logout = () => {
           <IoMenu />
         </button>
 
-        <img src={mainLogo} alt="logo" className="w-28 sm:w-36" />
+        <img src={mainLogo} alt="logo" className="w-28 sm:w-36"  onClick={()=>navigate("/")}/>
 
         <button
           onClick={() =>{
