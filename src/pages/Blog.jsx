@@ -51,6 +51,10 @@ const addComment = async (e) => {
       content: content,
     });
 
+
+
+    
+
     if (data.success) {
       toast.success(data.message);
       setName("");
