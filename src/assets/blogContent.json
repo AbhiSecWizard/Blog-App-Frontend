@@ -1,0 +1,83 @@
+[
+  {
+    "_id": "b1",
+    "title": "How to Create an Effective Startup Roadmap",
+    "category": "Entrepreneurship",
+    "author": "Amit Sharma",
+    "content": "<h2 className='text-red-900'>1. Start with the Problem</h2><p>Identify a real, painful problem. Ask: <strong>'Is this a must-have or just nice to have?'</strong></p><ul><li>Talk to real users.</li><li>Validate the audience size.</li></ul>",
+    "slug": "startup-roadmap-guide"
+  },
+  {
+    "_id": "b2",
+    "title": "Defining Your Vision and Mission",
+    "category": "Strategy",
+    "author": "Amit Sharma",
+    "content": "<h2 className='text-red-900'>Vision vs. Mission</h2><p>Your <strong>Vision</strong> is the long-term impact. Your <strong>Mission</strong> is the method to get there.</p><p>This provides your roadmap with a clear North Star.</p>",
+    "slug": "vision-and-mission"
+  },
+  {
+    "_id": "b3",
+    "title": "The Art of Filtering Ideas",
+    "category": "Product",
+    "author": "Amit Sharma",
+    "content": "<h2>How to evaluate solutions:</h2><ol><li><strong>Feasibility:</strong> Can we build it?</li><li><strong>Market Demand:</strong> Do they want it?</li><li><strong>Revenue:</strong> Can we monetize it?</li></ol>",
+    "slug": "filtering-startup-ideas"
+  },
+  {
+    "_id": "b4",
+    "title": "Building Your First MVP",
+    "category": "Development",
+    "author": "Amit Sharma",
+    "content": "<h2>Strip it down</h2><p>Build only what is necessary to solve the problem. Focus on <em>value</em>, not features.</p><p>Example: For a job portal, start with just registration and job posting.</p>",
+    "slug": "building-your-mvp"
+  },
+  {
+    "_id": "b5",
+    "title": "Phase 1: Research & Validation",
+    "category": "Research",
+    "author": "Amit Sharma",
+    "content": "<h2>The Foundation</h2><p>Before coding, perform:</p><ul><li>Competitor analysis</li><li>User interviews</li><li>Market surveys</li></ul>",
+    "slug": "research-and-validation"
+  },
+  {
+    "_id": "b6",
+    "title": "Phase 2: MVP Development & Internal Testing",
+    "category": "Development",
+    "author": "Amit Sharma",
+    "content": "<h2>Execution</h2><p>Focus on the core loop of your product. Perform internal testing (Alpha) to catch major bugs before users see it.</p>",
+    "slug": "mvp-development-phase"
+  },
+  {
+    "_id": "b7",
+    "title": "Phase 3: Launch and Feedback Loops",
+    "category": "Growth",
+    "author": "Amit Sharma",
+    "content": "<h2>Soft Launch</h2><p>Release to a small group of early adopters. Use tools like <strong>Hotjar</strong> or <strong>Mixpanel</strong> to see how they behave.</p>",
+    "slug": "launch-and-feedback"
+  },
+  {
+    "_id": "b8",
+    "title": "Scaling Your Startup Team",
+    "category": "Management",
+    "author": "Amit Sharma",
+    "content": "<h2>Growth Phase</h2><p>When you have product-market fit, it is time to hire. Focus on multi-talented individuals who can handle the chaos of a startup.</p>",
+    "slug": "scaling-startup-team"
+  },
+  {
+    "_id": "b9",
+    "title": "Monetization Strategies",
+    "category": "Business",
+    "author": "Amit Sharma",
+    "content": "<h2>Show me the money</h2><p>Common models:</p><ul><li>Subscription (SaaS)</li><li>Freemium</li><li>Marketplace Commission</li><li>Ad-based</li></ul>",
+    "slug": "monetization-strategies"
+  },
+  {
+    "_id": "b10",
+    "title": "The Power of Pivoting",
+    "category": "Strategy",
+    "author": "Amit Sharma",
+    "content": "<h2>Stay Flexible</h2><p>A roadmap is a guide, not a rulebook. If the data says your idea isn't working, <strong>pivot</strong> to a new direction based on user feedback.</p>",
+    "slug": "power-of-pivoting"
+  }
+]
+

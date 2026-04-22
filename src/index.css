@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+
+*{
+    font-family: "Outfit","sans-sarif";
+}
+@theme{
+    --color-primary:#5044E5;
+    --color-hover_primary:#4132fa;
+}
+/* scrollbar hide */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+/* Blog Content Styling */
+
+.blog-content h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 24px 0 12px;
+  color: #7f1d1d; /* similar to text-red-900 */
+}
+
+.blog-content p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  color: #374151; /* gray-700 */
+}
+
+.blog-content ul {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+.blog-content ol {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+.blog-content li {
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+.blog-content strong {
+  font-weight: 700;
+  color: #111827;
+}
+
+.blog-content em {
+  font-style: italic;
+}
+
+.blog-content a {
+  color: #2563eb;
+  text-decoration: underline;
+}
