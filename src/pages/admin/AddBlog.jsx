@@ -6,12 +6,14 @@ import toast from "react-hot-toast";
 import upload_area from "../../assets/upload_area.svg";
 import { blogCategories } from "../../assets/assets";
 import { useAppContext } from "../../context/AppContext";
+import { parse } from "marked";
 
 const AddBlog = () => {
   const { axios } = useAppContext();
 
   // --- State ---
   const [isAdding, setIsAdding] = useState(false);
+  const [loading, setLoading] = useState(false); // AI Loading State
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState("");
   const [subTitle, setSubTitle] = useState("");
@@ -20,6 +22,28 @@ const AddBlog = () => {
 
   const editorRef = useRef(null);
   const quillRef = useRef(null);
+
+  // --- AI Content Generation ---
+  const generateContent = async () => {
+    if (!title) return toast.error("Please enter a title first to generate content");
+
+    try {
+      setLoading(true);
+      const { data } = await axios.post("/api/blog/generate", { prompt: title });
+      
+      if (data.success) {
+        // Use marked to parse markdown from AI and inject into Quill
+        quillRef.current.root.innerHTML = parse(data.content);
+        toast.success("Content generated successfully!");
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.response?.data?.message || error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // --- Initialize Editor ---
   useEffect(() => {
@@ -142,7 +166,18 @@ const AddBlog = () => {
         <div className="mt-8">
           <div className="flex justify-between items-center mb-3">
             <label className="text-sm font-medium text-gray-700">Content</label>
+            
+            {/* --- AI GENERATE BUTTON --- */}
+            <button
+              type="button"
+              onClick={generateContent}
+              disabled={loading}
+              className="text-xs font-semibold bg-indigo-50 text-indigo-600 px-3 py-1.5 rounded-md hover:bg-indigo-100 transition-colors disabled:opacity-50"
+            >
+              {loading ? "Generating..." : "Generate with AI"}
+            </button>
           </div>
+          
           <div className="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 shadow-inner">
             <div ref={editorRef} className="h-80 text-gray-800 bg-white" />
           </div>

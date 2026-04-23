@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import Sidebar from "./Sidebar";
 import mainLogo from "/logo.png";
 import { useAppContext } from "../../context/AppContext";
+import { motion } from "framer-motion";
 
 const Layout = () => {
   // const navigate = useNavigate();
