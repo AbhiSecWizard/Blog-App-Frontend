@@ -38,7 +38,7 @@ const Login = () => {
       onChange={(e)=>setEmail(e.target.value)}
       type="email"
       required 
-      placeholder='your email id' 
+      placeholder='admin@example.com' 
       className='border-b-2 border-gray-300 p-2 outline-none mb-6'
     />
   </div>
@@ -48,7 +48,7 @@ const Login = () => {
       onChange={(e)=>setPassword(e.target.value)}
       type="password"
       required 
-      placeholder='your password'     
+      placeholder='blogbeam'     
       className='border-b-2 border-gray-300 p-2 outline-none mb-6'
     />
   </div>
