@@ -1,11 +1,12 @@
+import React, { useEffect, useState } from "react";
 import { CiViewList } from "react-icons/ci";
 import { FaRegComments } from "react-icons/fa";
 import { LuNotebookPen } from "react-icons/lu";
 import { CgCalendarNext } from "react-icons/cg";
-import { useEffect, useState } from "react";
 import BlogTableItem from "./BlogTableItem";
 import { useAppContext } from "../../context/AppContext";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const DashboardStats = () => {
   const { axios } = useAppContext();
@@ -16,6 +17,7 @@ const DashboardStats = () => {
     drafts: 0,
     recentBlogs: [],
   });
+  const navigate = useNavigate();
 
   // 1. Fetch Stats & Recent Blogs
   const fetchDashboardStats = async () => {
@@ -27,7 +29,7 @@ const DashboardStats = () => {
           blogs: data.blogs,
           comments: data.comments,
           drafts: data.drafts,
-          recentBlogs: data.recentBlogs,
+          recentBlogs: data.recentBlogs || [],
         });
       }
     } catch (error) {
@@ -42,25 +44,25 @@ const DashboardStats = () => {
     try {
       const { data } = await axios.post("/api/blog/toggle-publish", { id });
       if (data.success) {
-        toast.success("Status updated!");
-        fetchDashboardStats(); // Refresh the list and stats
+        toast.success(data.message || "Status updated!");
+        fetchDashboardStats();
       }
     } catch (error) {
       toast.error("Failed to update status");
     }
   };
 
-  // 3. Delete Blog Logic
+  // 3. Delete Blog Logic (FIXED REST PARAMETERS IMPLEMENTATION)
   const handleDeleteBlog = async (id) => {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
     try {
-      const { data } = await axios.post("/api/blog/delete", { id });
+      const { data } = await axios.post(`/api/blog/delete/${id}`); 
       if (data.success) {
         toast.success("Blog deleted successfully");
-        fetchDashboardStats(); // Refresh the list and stats
+        fetchDashboardStats();
       }
     } catch (error) {
-      toast.error("Failed to delete blog");
+      toast.error(error.response?.data?.message || "Failed to delete blog");
     }
   };
 
@@ -74,7 +76,6 @@ const DashboardStats = () => {
     <div className="max-w-6xl mx-auto p-4 md:p-8">
       {/* ===== Stats Grid ===== */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
-         {/* ... (Your existing Stat Cards here) ... */}
          <StatCard icon={<CiViewList size={28}/>} color="blue" label="Total Blogs" value={dashboardData.blogs} />
          <StatCard icon={<FaRegComments size={28}/>} color="purple" label="Comments" value={dashboardData.comments} />
          <StatCard icon={<LuNotebookPen size={28}/>} color="orange" label="Drafts" value={dashboardData.drafts} />
@@ -99,16 +100,20 @@ const DashboardStats = () => {
                 <th className="px-6 py-4 text-center">Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-50">
-              {dashboardData.recentBlogs.map((blog, index) => (
-                <BlogTableItem 
-                  key={blog._id} 
-                  blog={blog} 
-                  index={index} 
-                  onTogglePublish={handleTogglePublish} // PASSING PROPS
-                  onDelete={handleDeleteBlog}           // PASSING PROPS
-                />
-              ))}
+
+              
+<tbody className="divide-y divide-gray-50">
+  {dashboardData.recentBlogs.map((blog, index) => (
+    <BlogTableItem 
+      key={blog._id} 
+      blog={blog} 
+      index={index}                
+      onTogglePublish={handleTogglePublish} 
+      onDelete={handleDeleteBlog}
+      onEdit={(id) => navigate(`/admin/edit-blog/${id}`)}          
+    />
+  ))}
+
             </tbody>
           </table>
         </div>
@@ -117,7 +122,6 @@ const DashboardStats = () => {
   );
 };
 
-// Simple StatCard helper component to keep code clean
 const StatCard = ({ icon, color, label, value }) => (
     <div className="flex items-center gap-4 p-5 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
       <div className={`p-3 text-${color}-600 bg-${color}-50 rounded-xl`}>{icon}</div>

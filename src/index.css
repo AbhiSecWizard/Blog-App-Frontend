@@ -60,3 +60,99 @@
   color: #2563eb;
   text-decoration: underline;
 }
+/* 📝 सुंदर और रीडेबल ब्लॉग कंटेंट के लिए कस्टम स्टाइल्स */
+.blog-content h1 {
+  font-size: 2.25rem; /* 36px */
+  font-weight: 800;
+  color: #111827;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+.blog-content h2 {
+  font-size: 1.75rem; /* 28px */
+  font-weight: 700;
+  color: #1f2937;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-content h3 {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 600;
+  color: #374151;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-content p {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.8;
+  color: #4b5563;
+  margin-bottom: 1.25rem;
+}
+
+.blog-content strong {
+  font-weight: 700;
+  color: #111827;
+}
+
+.blog-content em {
+  font-style: italic;
+}
+
+/* लिंक्स की स्टाइलिंग */
+.blog-content a {
+  color: #4f46e5; /* Indigo-600 */
+  text-decoration: underline;
+  font-weight: 500;
+}
+.blog-content a:hover {
+  color: #4338ca;
+}
+
+/* बुलेट लिस्ट (Unordered List) */
+.blog-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.blog-content ul li {
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  color: #4b5563;
+}
+
+/* नंबर्ड लिस्ट (Ordered List) */
+.blog-content ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.blog-content ol li {
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  color: #4b5563;
+}
+
+/* ब्लॉककोट (Quotes) की स्टाइलिंग */
+.blog-content blockquote {
+  border-left: 4px solid #4f46e5;
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: #1f2937;
+  background-color: #f9fafb;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+/* इमेज की स्टाइलिंग जो ब्लॉग के अंदर इन्सर्ट की गई हों */
+.blog-content img {
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 100%;
+  height: auto;
+}

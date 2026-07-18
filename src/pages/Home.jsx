@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import Newalatter from '../components/Newslatter'
 import BlogList from '../components/BlogList'
 import Footer from '../components/Footer'
+import About from './About'
 
 const Home = () => {
   return (
@@ -10,8 +11,9 @@ const Home = () => {
       <Navbar/>
       <Header/>
       <BlogList/>
+      <About/>
       <Newalatter/>
-      <Footer/>
+      <Footer/>   
     </>
   )
 }
